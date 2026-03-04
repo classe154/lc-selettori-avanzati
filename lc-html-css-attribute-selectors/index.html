@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Selettori di Attributi CSS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1>Template per Test Selettori di Attributi CSS</h1>
+  <p>Aggiungi i selettori CSS nello stile per vedere gli effetti sui diversi attributi!</p>
+
+  <!-- Sezione 1: [attr] - Ha l'attributo -->
+  <div class="container">
+    <h2>1. Selettore: tag[attr]</h2>
+    <p><strong>Regola:</strong> Seleziona elementi che <em>hanno</em> quell'attributo, indipendentemente dal valore</p>
+
+    <div class="example">
+      <p><span class="code">input[type]</span> - Input che hanno attributo type:</p>
+      <input value="Input senza type">
+      <input type="text" value="Input CON type='text'">
+      <input type="email" value="Input CON type='email'">
+      <input type="password" value="Input CON type='password'">
+    </div>
+
+  </div>
+
+  <!-- Sezione 2: [attr="value"] - Valore esatto -->
+  <div class="container">
+    <h2>2. Selettore: [attr="value"] - Valore Esatto</h2>
+    <p><strong>Regola:</strong> L'attributo deve avere <em>esattamente</em> quel valore</p>
+
+
+    <div class="example">
+      <p><span class="code">a[href="https://example.com"]</span>:</p>
+      <a href="https://example.com">Link esatto ✓</a><br>
+      <a href="https://example.com/">Con slash finale</a><br>
+      <a href="https://example.com/page">Con pagina</a><br>
+      <a href="http://example.com">HTTP invece di HTTPS</a>
+    </div>
+
+  </div>
+
+  <!-- Sezione 3: [attr^="value"] - Inizia con -->
+  <div class="container">
+    <h2>3. Selettore: [attr^="value"] - Inizia Con</h2>
+    <p><strong>Regola:</strong> L'attributo deve <em>iniziare</em> con quella stringa</p>
+
+    <div class="example">
+      <p><span class="code">p[class^="intro"]</span>:</p>
+      <p class="intro">classe = "intro" ✓</p>
+      <p class="intro-text">classe = "intro-text" ✓</p>
+      <p class="introduction">classe = "introduction" ✓</p>
+      <p class="main intro">classe = "main intro" (non inizia con intro)</p>
+      <p class="content">classe = "content"</p>
+    </div>
+  </div>
+
+  <!-- Sezione 4: [attr$="value"] - Finisce con -->
+  <div class="container">
+    <h2>4. Selettore: [attr$="value"] - Finisce Con</h2>
+    <p><strong>Regola:</strong> L'attributo deve <em>finire</em> con quella stringa</p>
+
+
+    <div class="example">
+      <p><span class="code">a[href$=".html"]</span>:</p>
+      <a href="page.html">Pagina HTML ✓</a><br>
+      <a href="index.php">Pagina PHP</a><br>
+      <a href="about.html#section">HTML con anchor (non finisce con .html)</a><br>
+      <a href="contact.HTML">HTML maiuscolo</a>
+    </div>
+  </div>
+
+  <!-- Sezione 5: [attr*="value"] - Contiene substring -->
+  <div class="container">
+    <h2>5. Selettore: [attr*="value"] - Contiene Substring</h2>
+    <p><strong>Regola:</strong> L'attributo deve <em>contenere</em> quella stringa da qualche parte</p>
+
+
+    <div class="example">
+      <p><span class="code">p[class*="special"]</span>:</p>
+      <p class="special">classe = "special" ✓</p>
+      <p class="very-special">classe = "very-special" ✓</p>
+      <p class="special-item">classe = "special-item" ✓</p>
+      <p class="my special class">classe = "my special class" ✓</p>
+      <p class="normal">classe = "normal"</p>
+    </div>
+
+  </div>
+
+  <!-- Sezione 6: [attr~="value"] - Contiene parola -->
+  <div class="container">
+    <h2>6. Selettore: [attr~="value"] - Contiene Parola</h2>
+    <p><strong>Regola:</strong> L'attributo deve contenere quella <em>parola completa</em> separata da spazi</p>
+
+    <div class="example">
+      <p><span class="code">span[title~="importante"]</span>:</p>
+      <span title="importante">title = "importante" ✓</span><br>
+      <span title="molto importante davvero">title = "molto importante davvero" ✓</span><br>
+      <span title="importante per tutti">title = "importante per tutti" ✓</span><br>
+      <span title="informazioni-importante">title = "informazioni-importante" (non separato)</span><br>
+      <span title="superimportante">title = "superimportante" (non separato)</span>
+    </div>
+  </div>
+
+  <!-- Sezione extra per test combinati -->
+  <div class="container">
+    <h2>Sezione Extra - Test Combinati</h2>
+    <p>Elementi per testare combinazioni di selettori:</p>
+
+    <div class="example">
+      <input type="email" class="form-input" data-validation="required" placeholder="Email con attributi multipli">
+      <input type="text" class="form-input special-field" data-validation="optional" placeholder="Testo con attributi">
+      <a href="https://github.com/user/repo" class="link external" title="Repository importante">Link GitHub</a>
+      <img src="https://example.com/photo.jpg" class="image responsive" alt="Foto importante" data-category="photos">
+      <div class="container active" data-status="ready" data-tags="frontend javascript important">Container completo
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

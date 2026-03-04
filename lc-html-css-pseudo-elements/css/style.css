@@ -1,0 +1,233 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	margin: 20px;
+	background-color: #f5f5f5;
+}
+
+.container {
+	background: white;
+	padding: 20px;
+	margin: 10px 0;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+}
+
+h2 {
+	color: #333;
+	border-bottom: 2px solid #333;
+	padding-bottom: 5px;
+}
+
+.example {
+	background: #f9f9f9;
+	padding: 15px;
+	margin: 10px 0;
+	border-left: 4px solid #ccc;
+	border-radius: 4px;
+}
+
+.code-block {
+	background: #1e1e1e;
+	color: #d4d4d4;
+	padding: 20px;
+	border-radius: 6px;
+	font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+	font-size: 14px;
+	line-height: 1.4;
+	overflow-x: auto;
+	margin: 15px 0;
+	border: 1px solid #333;
+}
+
+.css-property {
+	padding-left: 16px;
+	color: #9cdcfe;
+}
+
+.css-value {
+	color: #ce9178;
+}
+
+.css-selector {
+	color: #d7ba7d;
+}
+
+.css-comment {
+	color: #6a9955;
+	font-style: italic;
+}
+
+.css-pseudo {
+	color: #c586c0;
+}
+
+.code {
+	background: #e8e8e8;
+	padding: 2px 6px;
+	border-radius: 3px;
+	font-family: monospace;
+	font-size: 0.9em;
+}
+
+.note {
+	background: #fff3cd;
+	border: 1px solid #ffeaa7;
+	padding: 10px;
+	border-radius: 4px;
+	margin: 10px 0;
+}
+
+/********** INIZIO ESEMPI ********/
+
+/* ESEMPIO 1: Task List con Pseudo-elementi */
+.task-list {
+	list-style: none;
+	padding-left: 0;
+	max-width: 400px;
+}
+
+/* Regole generali centralizzate sull'ul */
+.task-list li {
+	position: relative;
+	padding: 12px 15px 12px 40px;
+	margin: 8px 0;
+	background: #f8f9fa;
+	border: 1px solid #dee2e6;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.task-list li::before {
+	content: '';
+	/* Verrà sovrascritto dalle classi specifiche */
+	position: absolute;
+	left: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	font-weight: bold;
+	font-family: monospace;
+}
+
+/* Classi specifiche per differenziare content e colore */
+.task-list li.completed::before {
+	content: '\2713';
+	/* Entità CSS per checkmark */
+	color: #28a745;
+}
+
+.task-list li.failed::before {
+	content: '\2717';
+	/* Entità CSS per X */
+	color: #dc3545;
+}
+
+/* ESEMPIO 2: Visualizzazione Before/After */
+.demo-element {
+	background: #e3f2fd;
+	border: 3px solid #2196f3;
+	padding: 20px;
+	margin: 20px 0;
+	position: relative;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.demo-element::before {
+	content: '::BEFORE';
+	background: #ff9800;
+	color: white;
+	padding: 8px 12px;
+	border-radius: 4px;
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	font-size: 14px;
+	font-weight: bold;
+	border: 2px solid #f57c00;
+}
+
+.demo-element::after {
+	content: '::AFTER';
+	background: #9c27b0;
+	color: white;
+	padding: 8px 12px;
+	border-radius: 4px;
+	position: absolute;
+	bottom: -15px;
+	right: -15px;
+	font-size: 14px;
+	font-weight: bold;
+	border: 2px solid #7b1fa2;
+}
+
+/* Esempio per mostrare il content flow */
+.content-flow {
+	border: 2px solid #333;
+	padding: 15px;
+	margin: 15px 0;
+	background: white;
+	position: relative;
+}
+
+.content-flow::before {
+	content: 'BEFORE (prima del contenuto)';
+	background: #ffeb3b;
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #333;
+	margin-right: 10px;
+}
+
+.content-flow::after {
+	content: 'AFTER (dopo il contenuto)';
+	background: #e91e63;
+	color: white;
+	padding: 4px 8px;
+	border-radius: 3px;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+/* Esempio avanzato con numerazione */
+.numbered-list {
+	list-style: none;
+	counter-reset: item-counter;
+	padding-left: 0;
+}
+
+.numbered-list li {
+	counter-increment: item-counter;
+	padding: 10px 15px 10px 50px;
+	margin: 5px 0;
+	background: #f1f3f4;
+	border-left: 4px solid #4285f4;
+	position: relative;
+}
+
+.numbered-list li::before {
+	content: counter(item-counter);
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: #4285f4;
+	color: white;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 14px;
+}

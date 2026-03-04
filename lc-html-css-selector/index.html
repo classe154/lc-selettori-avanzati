@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Selettori CSS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Template per Test Selettori CSS</h1>
+  <p>Aggiungi i selettori CSS nello stile per vedere gli effetti!</p>
+
+  <!-- Sezione 1: el.class (p.importante) -->
+  <div class="container">
+    <h2>1. Selettore: p.importante</h2>
+    <p>Questo è un paragrafo normale</p>
+    <p class="importante">Questo paragrafo ha classe "importante"</p>
+    <span class="importante">Questo span ha classe "importante" (ma non è un p)</span>
+    <p class="altra">Questo paragrafo ha una classe diversa</p>
+  </div>
+
+  <!-- Sezione 2: .class.class (.highlight.speciale) -->
+  <div class="container">
+    <h2>2. Selettore: .highlight.speciale</h2>
+    <div class="highlight">Solo classe highlight</div>
+    <div class="speciale">Solo classe speciale</div>
+    <div class="highlight speciale">Entrambe le classi highlight e speciale</div>
+    <div class="highlight altra speciale">Highlight, altra e speciale insieme</div>
+    <p class="highlight speciale">Paragrafo con entrambe le classi</p>
+  </div>
+
+  <!-- Sezione 3: div * (tutti gli elementi discendenti) -->
+  <div class="container">
+    <h2>3. Selettore: div *</h2>
+    <p>Questo paragrafo è fuori dal div di test</p>
+    <div class="test-div">
+      <p>Paragrafo dentro il div</p>
+      <span>Span dentro il div</span>
+      <ul>
+        <li>Elemento lista dentro il div</li>
+        <li>Altro elemento <strong>con strong annidato</strong></li>
+      </ul>
+      <div>
+        <p>Paragrafo in div annidato</p>
+      </div>
+    </div>
+    <p>Questo paragrafo è dopo il div di test</p>
+  </div>
+
+  <!-- Sezione 4: div p (tutte le p discendenti) -->
+  <div class="container">
+    <h2>4. Selettore: div p</h2>
+    <p>Paragrafo fuori dal div</p>
+    <div class="test-div">
+      <p>Paragrafo figlio diretto del div</p>
+      <span>Span nel div (non è un p)</span>
+      <article>
+        <p>Paragrafo dentro article, che è dentro div</p>
+      </article>
+      <section>
+        <div>
+          <p>Paragrafo molto annidato nel div</p>
+        </div>
+      </section>
+    </div>
+    <p>Paragrafo dopo il div</p>
+  </div>
+
+  <!-- Sezione 5: div > p (figlio diretto) -->
+  <div class="container">
+    <h2>5. Selettore: div > p</h2>
+    <p>Paragrafo fuori dal div</p>
+    <div class="test-div">
+      <p>Paragrafo FIGLIO DIRETTO del div</p>
+      <p>Altro paragrafo FIGLIO DIRETTO</p>
+      <span>Span figlio diretto (ma non è p)</span>
+      <article>
+        <p>Paragrafo dentro article (NON figlio diretto del div)</p>
+      </article>
+    </div>
+    <p>Paragrafo dopo il div</p>
+  </div>
+
+  <!-- Sezione 6: div + p (adiacenza) -->
+  <div class="container">
+    <h2>6. Selettore: div + p</h2>
+    <p>Paragrafo prima del div</p>
+    <div class="test-div">Contenuto del div</div>
+    <p>Paragrafo IMMEDIATAMENTE dopo il div (adiacente)</p>
+    <p>Secondo paragrafo dopo il div (NON adiacente)</p>
+
+    <div class="altro-div">Altro div</div>
+    <span>Span dopo il div (non è p)</span>
+    <p>Paragrafo dopo span, non adiacente al div</p>
+  </div>
+
+  <!-- Sezione 7: div ~ p (fratellanza generale) -->
+  <div class="container">
+    <h2>7. Selettore: div ~ p</h2>
+    <p>Paragrafo prima del div (stesso livello ma PRIMA)</p>
+    <div class="test-div">Contenuto del div</div>
+    <p>Primo paragrafo fratello dopo il div</p>
+    <span>Span in mezzo</span>
+    <h3>Titolo in mezzo</h3>
+    <p>Secondo paragrafo fratello dopo il div (anche con elementi in mezzo)</p>
+    <article>
+      <p>Paragrafo dentro article (NON fratello del div)</p>
+    </article>
+    <p>Terzo paragrafo fratello del div</p>
+  </div>
+
+  <!-- Sezione extra per test combinati -->
+  <div class="container">
+    <h2>Sezione Extra per Test Avanzati</h2>
+    <div class="parent">
+      <p class="importante">Paragrafo con classe importante nel div</p>
+      <div class="child">
+        <p>Paragrafo in div annidato</p>
+        <span class="importante">Span importante</span>
+      </div>
+    </div>
+    <p class="importante">Paragrafo importante fuori dal div</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	margin: 20px;
+	background-color: #f5f5f5;
+}
+
+.container {
+	background: white;
+	padding: 20px;
+	margin: 10px 0;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+}
+
+h2 {
+	color: #333;
+	border-bottom: 2px solid #333;
+	padding-bottom: 5px;
+}
+
+/* Aggiungi qui i tuoi selettori per testare */
+/*  */
+/* Esempi da testare uno alla volta: */
+p.importante { color: red; }
+/* 2. .highlight.speciale { color: red; }  */
+/* 3. div * { color: red; } */
+/* 4. div p { color: red; } */
+/* 5. div > p { color: red; } */
+/* 6. div + p { color: red; } */
+/* 7. div ~ p { color: red; } */

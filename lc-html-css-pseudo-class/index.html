@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Pseudo-classi CSS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1>Template per Test Pseudo-classi CSS</h1>
+  <p>Aggiungi i selettori CSS nello stile per vedere gli effetti interattivi!</p>
+
+  <!-- Sezione 1: :first-child -->
+  <div class="container">
+    <h2>1. Pseudo-classe :first-child</h2>
+    <p><strong>Regola:</strong> Seleziona il <em>primo figlio</em> di ogni elemento padre</p>
+
+    <div class="example">
+      <p><span class="code">li:first-child</span> - Solo il primo `&lt;li&gt;` di ogni lista:</p>
+      <ul>
+        <li>Primo elemento della lista ✓ (first-child)</li>
+        <li>Secondo elemento</li>
+        <li>Terzo elemento</li>
+        <li>Ultimo elemento</li>
+      </ul>
+
+      <ol>
+        <li>Primo elemento della lista numerata ✓ (first-child)</li>
+        <li>Secondo elemento</li>
+        <li>Terzo elemento</li>
+      </ol>
+
+      <!-- Lista con elementi diversi all'inizio -->
+      <div class="note">
+        <strong>Attenzione:</strong> Se il primo figlio non è un `&lt;li&gt;`, allora nessun `&lt;li&gt;` sarà
+        first-child!
+        <ul>
+          <span>Questo span è il primo figlio del ul</span>
+          <li>Questo li NON è first-child (è il secondo figlio)</li>
+          <li>Secondo li</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione 2: :last-child -->
+  <div class="container">
+    <h2>2. Pseudo-classe :last-child</h2>
+    <p><strong>Regola:</strong> Seleziona l'<em>ultimo figlio</em> di ogni elemento padre</p>
+
+    <div class="example">
+      <p><span class="code">li:last-child</span> - Solo l'ultimo `&lt;li&gt;` di ogni lista:</p>
+      <ul>
+        <li>Primo elemento</li>
+        <li>Secondo elemento</li>
+        <li>Terzo elemento</li>
+        <li>Ultimo elemento della lista ✓ (last-child)</li>
+      </ul>
+
+      <ol>
+        <li>Primo elemento</li>
+        <li>Secondo elemento</li>
+        <li>Ultimo elemento numerato ✓ (last-child)</li>
+      </ol>
+
+      <!-- Lista con elementi diversi alla fine -->
+      <div class="note">
+        <strong>Attenzione:</strong> Stesso principio di first-child!
+        <ul>
+          <li>Primo li</li>
+          <li>Questo li NON è last-child</li>
+          <span>Questo span è l'ultimo figlio del ul</span>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione 3: :hover -->
+  <div class="container">
+    <h2>3. Pseudo-classe :hover</h2>
+    <p><strong>Regola:</strong> Si attiva quando il mouse è <em>sopra</em> l'elemento</p>
+
+    <div class="example">
+      <p><span class="code">a:hover</span> - Passa il mouse sui link:</p>
+      <div class="test-links">
+        <a href="#test1">Link 1 - Hover me!</a>
+        <a href="#test2">Link 2 - Hover me!</a>
+        <a href="https://example.com">Link esterno</a>
+      </div>
+
+      <div class="note">
+        <strong>Nota:</strong> `:hover` funziona su tutti gli elementi, non solo i link!
+      </div>
+      <div class="note">
+        <strong>Nota:</strong> Se un elemento ha `cursor:
+        pointer`, non serve aggiungere altri stili :hover perché indica già che è interattivo.
+      </div>
+    </div>
+
+    <div class="example">
+      <p><span class="code">div p:hover</span> - Passa il mouse sui paragrafi dentro i div:</p>
+      <div class="test-paragraphs">
+        <p>Paragrafo 1 - Hover me! (sono dentro un div)</p>
+        <p>Paragrafo 2 - Hover me! (sono dentro un div)</p>
+        <p>Paragrafo 3 - Hover me! (sono dentro un div)</p>
+      </div>
+      <p>Questo paragrafo è fuori dal div - non cambierà colore</p>
+    </div>
+  </div>
+
+  <!-- Sezione 4: :visited -->
+  <div class="container">
+    <h2>4. Pseudo-classe :visited</h2>
+    <p><strong>Regola:</strong> Si applica ai link che sono già stati <em>visitati</em></p>
+
+    <div class="example">
+      <p><span class="code">a:visited</span> - Link visitati:</p>
+      <div class="test-links">
+        <a href="#visited1">Link interno #1</a>
+        <a href="#visited2">Link interno #2</a>
+        <a href="https://www.google.com">Google (probabilmente visitato)</a>
+        <a href="https://sito-mai-visitato-12345.example.com">Sito mai visitato</a>
+      </div>
+
+      <div class="note">
+        <strong>Privacy note:</strong> I browser limitano gli stili :visited per motivi di privacy. <br>
+        Spesso si può cambiare solo il colore, non altre proprietà come background o border.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione 5: :active -->
+  <div class="container">
+    <h2>5. Pseudo-classe :active</h2>
+    <p><strong>Regola:</strong> Si attiva quando l'elemento viene <em>cliccato</em> (mentre tieni premuto il mouse)</p>
+
+    <div class="example">
+      <p><span class="code">a:active</span> - Clicca e tieni premuto sui link:</p>
+      <div class="test-links">
+        <a href="#active1">Clicca e tieni premuto!</a>
+        <a href="#active2">Anche questo!</a>
+        <a href="#active3">E questo!</a>
+      </div>
+
+      <div class="note">
+        <strong>Tip:</strong> `:active` dura solo mentre tieni premuto il mouse. <br> È molto veloce!
+        Viene spesso usato per dare feedback visivo durante il click.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione 6: :focus -->
+  <div class="container">
+    <h2>6. Pseudo-classe :focus</h2>
+    <p><strong>Regola:</strong> Si attiva quando l'elemento ha il <em>focus</em> (è selezionato/attivo per input)</p>
+
+    <div class="example">
+      <p><span class="code">input[type="text"]:focus</span> - Clicca negli input per dare loro il focus:</p>
+      <input type="text" placeholder="Clicca qui per il focus">
+      <input type="text" placeholder="O qui">
+      <input type="text" placeholder="O anche qui">
+
+      <div class="note">
+        <strong>Focus spiegato:</strong> Il "focus" significa che l'elemento è attivo e pronto a ricevere input.
+        Per gli input questo succede quando ci clicchi dentro (vedrai il cursore lampeggiante).
+        Il focus si può anche dare con il tasto Tab per navigare tra gli elementi.
+      </div>
+    </div>
+
+    <div class="example">
+      <p>Altri esempi di focus:</p>
+      <input type="email" placeholder="Email input con focus">
+      <textarea placeholder="Anche le textarea possono avere focus" rows="3"></textarea>
+
+      <div class="note">
+        <strong>Accessibilità:</strong> Il focus è importante per l'accessibilità! Le persone che navigano
+        con la tastiera usano il Tab per spostarsi tra elementi focusabili.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione 7: Combinazioni avanzate -->
+  <div class="container">
+    <h2>7. Combinazioni di Pseudo-classi</h2>
+    <p>Puoi combinare più pseudo-classi sullo stesso elemento!</p>
+
+    <div class="example">
+      <p><span class="code">li:first-child:hover</span> - Solo il primo li quando ci passi sopra il mouse:</p>
+      <ul>
+        <li>Primo elemento ✓ - Hover solo su questo avrà effetto</li>
+        <li>Secondo elemento - Hover qui non farà nulla</li>
+        <li>Terzo elemento - Hover qui non farà nulla</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <p><span class="code">a:hover:visited</span> - Link visitati quando ci passi sopra il mouse:</p>
+      <div class="test-links">
+        <a href="https://www.google.com">Google - prova a visitarlo e poi hover</a>
+        <a href="#test">Link interno</a>
+      </div>
+    </div>
+
+    <div class="example">
+      <p><span class="code">div:hover p</span> - Paragrafi dentro div quando fai hover sul div:</p>
+      <div style="border: 2px dashed #ccc; padding: 10px; margin: 10px 0;">
+        <p>Passa il mouse su questo div (area tratteggiata)</p>
+        <p>Tutti i paragrafi qui dentro cambieranno</p>
+        <p>Quando fai hover sull'intero div!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione 8: Test completi -->
+  <div class="container">
+    <h2>8. Area di Test Completa</h2>
+    <p>Elementi per testare tutte le pseudo-classi insieme:</p>
+
+    <div class="example">
+      <h4>Lista mista per first-child e last-child:</h4>
+      <ul>
+        <li>Primo item</li>
+        <li>Item intermedio</li>
+        <li>Altro item intermedio</li>
+        <li>Ultimo item</li>
+      </ul>
+
+      <h4>Link per hover, visited, active:</h4>
+      <div class="test-links">
+        <a href="#link1">Link locale #1</a>
+        <a href="https://developer.mozilla.org">MDN (probabilmente visitato)</a>
+        <a href="#link2">Link locale #2</a>
+        <a href="https://www.wikipedia.org">Wikipedia</a>
+      </div>
+
+      <h4>Input per focus:</h4>
+      <input type="text" placeholder="Nome">
+      <input type="email" placeholder="Email">
+      <input type="text" placeholder="Città">
+      <textarea placeholder="Messaggi" rows="2"></textarea>
+
+      <h4>Paragrafi per hover combinato:</h4>
+      <div style="border: 1px solid #ddd; padding: 10px;">
+        <p>Paragrafo in contenitore</p>
+        <p>Altro paragrafo in contenitore</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>9. Suggerimenti per il Testing</h2>
+    <div class="note">
+      <h4>Come testare efficacemente:</h4>
+      <ul style="background: none; padding: 0;">
+        <li style="background: none; border: none;"><strong>:first-child/:last-child</strong> - Attiva il CSS e guarda
+          quali elementi cambiano</li>
+        <li style="background: none; border: none;"><strong>:hover</strong> - Muovi il mouse sugli elementi</li>
+        <li style="background: none; border: none;"><strong>:focus</strong> - Clicca negli input o usa Tab per navigare
+        </li>
+        <li style="background: none; border: none;"><strong>:active</strong> - Clicca e tieni premuto sui link</li>
+        <li style="background: none; border: none;"><strong>:visited</strong> - Visita alcuni link, poi ricarica la
+          pagina</li>
+      </ul>
+
+      <p><strong>Pro tip:</strong> Usa gli strumenti per sviluppatori del browser (F12) per vedere le pseudo-classi in
+        azione
+        e per forzare stati come :hover e :focus per il testing!</p>
+    </div>
+  </div>
+</body>
+
+</html>

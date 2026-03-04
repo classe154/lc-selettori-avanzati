@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Pseudo-elementi CSS</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <h1>Template per Pseudo-elementi CSS</h1>
+  <p>Gli pseudo-elementi permettono di stilizzare parti specifiche di un elemento o aggiungere contenuto generato dal
+    CSS.</p>
+
+  <!-- Sezione 1: Task List con Centralizzazione CSS -->
+  <div class="container">
+    <h2>1. Task List con Pseudo-elementi e Centralizzazione</h2>
+    <p>Esempio di come centralizzare le regole generali e differenziare solo il necessario con classi specifiche.</p>
+
+    <div class="example">
+      <h4>Risultato Visivo:</h4>
+      <ul class="task-list">
+        <li class="completed">Studiare HTML</li>
+        <li class="completed">Imparare CSS base</li>
+        <li class="failed">Completare il progetto entro ieri</li>
+        <li class="failed">Studiare JavaScript</li>
+        <li class="failed">Configurare l'ambiente di sviluppo</li>
+        <li class="failed">Fare tutto in un giorno</li>
+        <li class="failed">Creare il portfolio</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <h4>Codice CSS (Principio di Centralizzazione):</h4>
+      <div class="code-block">
+
+
+        <span class="css-selector">.task-list li</span><span class="css-pseudo">::before</span> {<br>
+        <span class="css-property">content</span>: <span class="css-value">""</span>; <span class="css-comment">/* Verrà
+          sovrascritto */</span><br>
+        <span class="css-property">position</span>: <span class="css-value">absolute</span>;<br>
+        <span class="css-property">left</span>: <span class="css-value">12px</span>;<br>
+        <span class="css-property">top</span>: <span class="css-value">50%</span>;<br>
+        <span class="css-property">transform</span>: <span class="css-value">translateY(-50%)</span>;<br>
+        <span class="css-property">font-size</span>: <span class="css-value">16px</span>;<br>
+        <span class="css-property">font-weight</span>: <span class="css-value">bold</span>;<br>
+        }<br><br>
+
+        <span class="css-comment">/* Classi SPECIFICHE per differenziare solo content e colore */</span><br>
+        <span class="css-selector">.task-list li.completed</span><span class="css-pseudo">::before</span> {<br>
+        <span class="css-property">content</span>: <span class="css-value">"\2713"</span>; <span class="css-comment">/*
+          Entità CSS checkmark */</span><br>
+        <span class="css-property">color</span>: <span class="css-value">#28a745</span>; <span class="css-comment">/*
+          Verde */</span><br>
+        }<br><br>
+
+        <span class="css-selector">.task-list li.failed</span><span class="css-pseudo">::before</span> {<br>
+        <span class="css-property">content</span>: <span class="css-value">"\2717"</span>; <span class="css-comment">/*
+          Entità CSS X */</span><br>
+        <span class="css-property">color</span>: <span class="css-value">#dc3545</span>; <span class="css-comment">/*
+          Rosso */</span><br>
+        }<br><br>
+
+
+      </div>
+      <div class="note">
+        <strong>Principio di Centralizzazione:</strong> Tutte le regole comuni (posizionamento, dimensioni, font)
+        sono definite una sola volta nell'elemento base. Le classi specifiche (.completed, .failed,)
+        sovrascrivono solo le proprietà che devono essere diverse (content e color).
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Sezione 2: Dove appaiono Before e After -->
+  <div class="container">
+    <h2>2. Dove Appaiono ::before e ::after</h2>
+    <p><strong>Concetto chiave:</strong> Gli pseudo-elementi non appaiono "prima" o "dopo" l'elemento, ma prima e dopo
+      il suo <em>contenuto</em>!</p>
+
+    <div class="example">
+      <h4>Visualizzazione Pratica:</h4>
+      <div class="demo-element">
+        QUESTO È IL CONTENUTO DELL'ELEMENTO
+      </div>
+
+      <div class="note">
+        Osserva: <span class="code">::before</span> appare prima del testo "QUESTO È IL CONTENUTO..."
+        e <span class="code">::after</span> appare dopo, ma entrambi sono comunque <em>dentro</em> l'elemento!
+      </div>
+    </div>
+
+    <div class="example">
+      <h4>Flow del Contenuto:</h4>
+      <div class="content-flow">
+        Questo è il contenuto reale dell'elemento HTML
+      </div>
+      <div class="code-block">
+        <span class="css-selector">.content-flow</span><span class="css-pseudo">::before</span> {
+        <br>
+        <span class="css-property">content</span>: <span class="css-value">"BEFORE (prima del contenuto)"</span>;
+        <br>
+        <span class="css-comment">/* Appare PRIMA del testo, ma DENTRO l'elemento */</span>
+        <br>}
+        <br><br>
+
+        <span class="css-selector">.content-flow</span><span class="css-pseudo">::after</span> {
+        <br>
+        <span class="css-property">content</span>: <span class="css-value">"AFTER (dopo il contenuto)"</span>;
+        <br>
+        <span class="css-comment">/* Appare DOPO il testo, ma DENTRO l'elemento */</span>
+        <br>}
+        <br><br>
+      </div>
+    </div>
+
+  </div>
+
+
+  </div>
+
+  <!-- Sezione 3: Esempio Avanzato -->
+  <div class="container">
+    <h2>3. Esempio Avanzato: Lista Numerata Custom</h2>
+    <p>Uso di <span class="code">counter()</span> con pseudo-elementi per numerazione personalizzata.</p>
+
+    <div class="example">
+      <h4>Risultato:</h4>
+      <ol class="numbered-list">
+        <li>Primo elemento della lista</li>
+        <li>Secondo elemento con numerazione custom</li>
+        <li>Terzo elemento con stile personalizzato</li>
+        <li>Quarto elemento per vedere la progressione</li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <h4>Codice CSS:</h4>
+      <div class="code-block">
+        <span class="css-selector">.numbered-list</span> {<br>
+        <span class="css-property">list-style</span>: <span class="css-value">none</span>;<br>
+        <span class="css-property">counter-reset</span>: <span class="css-value">item-counter</span>; <span
+          class="css-comment">/* Inizializza counter */</span><br>
+        <span class="css-property">padding-left</span>: <span class="css-value">0</span>;<br>
+        }<br><br>
+
+        <span class="css-selector">.numbered-list li</span> {<br>
+        <span class="css-property">counter-increment</span>: <span class="css-value">item-counter</span>; <span
+          class="css-comment">/* Incrementa ad ogni li */</span><br>
+        <span class="css-property">padding</span>: <span class="css-value">10px 15px 10px 50px</span>;<br>
+        <span class="css-property">position</span>: <span class="css-value">relative</span>;<br>
+        }<br><br>
+
+        <span class="css-selector">.numbered-list li</span><span class="css-pseudo">::before</span> {<br>
+        <span class="css-property">content</span>: <span class="css-value">counter(item-counter)</span>; <span
+          class="css-comment">/* Mostra il numero */</span><br>
+        <span class="css-property">position</span>: <span class="css-value">absolute</span>;<br>
+        <span class="css-property">left</span>: <span class="css-value">15px</span>;<br>
+        <span class="css-property">background</span>: <span class="css-value">#4285f4</span>;<br>
+        <span class="css-property">color</span>: <span class="css-value">white</span>;<br>
+        <span class="css-property">width</span>: <span class="css-value">25px</span>;<br>
+        <span class="css-property">height</span>: <span class="css-value">25px</span>;<br>
+        <span class="css-property">border-radius</span>: <span class="css-value">50%</span>;<br>
+        <span class="css-property">display</span>: <span class="css-value">flex</span>;<br>
+        <span class="css-property">align-items</span>: <span class="css-value">center</span>;<br>
+        <span class="css-property">justify-content</span>: <span class="css-value">center</span>;<br>
+        }<br><br>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sezione 4: Regole Importanti -->
+  <div class="container">
+    <h2>4. Regole Fondamentali per gli Pseudo-elementi</h2>
+
+    <div class="example">
+      <div class="note">
+        <h4>📋 Checklist Essenziale:</h4>
+        <ul style="list-style: disc; padding-left: 20px;">
+          <li><strong>content è obbligatorio:</strong> Senza <span class="code">content: "";</span> lo pseudo-elemento
+            non appare!</li>
+          <li><strong>Due volte due punti:</strong> <span class="code">::before</span> e <span
+              class="code">::after</span> (non <span class="code">:before</span>)</li>
+          <li><strong>Sono elementi inline di default:</strong> Usa <span class="code">display: block</span> se serve
+          </li>
+          <li><strong>Non funzionano su elementi void:</strong> No su <span class="code">&lt;img&gt;</span>, <span
+              class="code">&lt;input&gt;</span>, <span class="code">&lt;hr&gt;</span></li>
+          <li><strong>Sono figli dell'elemento:</strong> Non fratelli, ma contenuti dentro</li>
+          <li><strong>Accessibilità:</strong> Il contenuto generato non è letto dai screen reader</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="example">
+      <h4>Entità CSS Utili:</h4>
+      <p>Ecco alcuni codici Unicode utili per gli pseudo-elementi:</p>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><span class="code">content: "\2713";</span> - ✓ Checkmark</li>
+        <li><span class="code">content: "\2717";</span> - ✗ X mark</li>
+        <li><span class="code">content: "\2605";</span> - ★ Stella piena</li>
+        <li><span class="code">content: "\2606";</span> - ☆ Stella vuota</li>
+        <li><span class="code">content: "\25B6";</span> - ▶ Freccia</li>
+        <li><span class="code">content: "\26A0";</span> - ⚠ Warning</li>
+        <li><span class="code">content: "\2139";</span> - ℹ Info</li>
+        <li><span class="code">content: "\23F3";</span> - ⏳ Pending/Loading</li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
